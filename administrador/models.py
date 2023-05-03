@@ -141,6 +141,23 @@ class ExamenesBreakdown(models.Model):
 
 
 class ExamenesExam(models.Model):
+    CAREERS = (
+        ('DNAM', 'DNAM'),
+        ('DNAM/LINEA', 'DNAM/LINEA'),
+        ('PIAA', 'PIAA'),
+        ('PIAA/SAB', 'PIAA/SABADOS'),
+        ('PIAM', 'PIAM'),
+        ('MAAU', 'MAAU'),
+        ('DMIAP', 'DMIAP'),
+        ('MAI', 'MAI'),
+        ('MAI-DES', 'MAI-DES'),
+        ('PIAP', 'PIAP'),
+        ('AACH/LINEA', 'AACH/LINEA'),
+        ('TIADSM', 'TIADSM'),
+        ('TIAIRD', 'TIAIRD'),
+        ('TIAVND', 'TIAVND'),
+        ('MAR', 'MAR')
+    )
     id = models.BigAutoField(primary_key=True)
     career = models.CharField(max_length=10)
     status_mod_1 = models.BooleanField(default=True)
