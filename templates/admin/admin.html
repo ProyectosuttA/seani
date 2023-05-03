@@ -1,0 +1,41 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+     <div class="right_col" role="main">
+        {% csrf_token %}
+      <!-- Gallery -->
+<div class="row">
+   <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" style="border: solid 2px #000;">
+               <!-- Insertar la gráfica -->
+             <h1 style="text-align:center;">Sesiones activas
+               </h1> 
+               <div style="width: 100%; height: 100%; overflow: auto;">
+                  {{grafica|safe}}
+               </div>
+     
+   </div>
+ 
+   <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" style="border: solid 2px #000;">
+      <!-- Insertar la gráfica -->
+    <h1 style="text-align:center;">Promedio por módulo
+      </h1> 
+      <div style="width: 100%; height: 100%; overflow: auto;">
+         {{barras|safe}}
+      </div>
+
+</div>
+
+ 
+   
+     
+   </div>
+ 
+   <div class="col-lg-4 mb-4 mb-lg-0">
+     
+   </div>
+ </div>
+     </div>
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+{% block title %}Pregunta {{ pregunta }}{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosp.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section class="textos-header">
+        <h1>{{mod_name}} <br> Pregunta  {{ pregunta }}</h1>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C225.17,133.72 354.97,-50.80 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+    </header>
+    <main>
+        <section class="contenedor sobre-nosotros"></section>
+            {% if question.question != ' ' %}
+            <br>
+            <br>
+                 <div class="contenido-textos" style="text-align: center;">
+                    <h1>{{ question.question }}</h1>
+                </div>
+            <br>
+            <br>
+            {% endif %}
+            {% if question.question_url %}
+                <h2 class="titulo">RESPONDE:</h2>
+                 <div class="contenedor-sobre-nosotros">
+                 <img class="imagen" src="{{ question.question_url }}" alt="" class="imagen-about-us">              
+                </div>  
+            {% endif %}
+       </section>   
+       <section class="portafolio">
+        <div class="contenedor">
+            <form action="{% url 'question' id_mod siguiente %}" method="post">
+                {% csrf_token %}
+                <input type="radio" name="respuesta" 
+                        id="resp0" value="-" style="display: none;" 
+                        {% if respuesta == '-' %}checked{% endif %}>
+                <input type="radio" name="respuesta" id="resp1" value="A"
+                {% if respuesta == 'A' %}checked{% endif %}>
+                <label for="resp1">{{ question.resp1 }}</label>
+                <br>
+                <input type="radio" name="respuesta" id="resp2" value="B"
+                {% if respuesta == 'B' %}checked{% endif %}>
+                <label for="resp2">{{ question.resp2 }}</label>
+                <br>
+                <input type="radio" name="respuesta" id="resp3" value="C"
+                {% if respuesta == 'C' %}checked{% endif %}>
+                <label for="    resp3">{{ question.resp3 }}</label>
+                <br>
+                <input type="radio" name="respuesta" id="resp4" value="D"
+                {% if respuesta == 'D' %}checked{% endif %}>
+                <label for="resp4">{{ question.resp4 }}</label>
+                <br>
+                <input type="hidden" name="question_in_breakdown" value="{{ question_in_breakdown }}">
+                <input class="boton" type="submit" value="Siguiente">
+            </form>               
+        </div>
+       </section>
+    </main>
+
+
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>UNIVERSIDAD TECNOLÓGICA DE TLAXCALA</h4>
+            </div>            
+        </div>
+        <h2 class="titulo-final">&copy; UTT </h2>
+    </footer>
+
+    
+</body>
+</html>
+<!--   <h1>Pregunta: {{ pregunta }}</h1>
+    
+    {% if question.question != ' ' %}
+        <h2>{{ question.question }}</h2>
+    {% endif %}
+    {% if question.question_url %}
+        <img src="{{ question.question_url }}" alt="">
+    {% endif %}
+    <form action="{% url 'question' id_mod siguiente %}" method="post">
+        {% csrf_token %}
+        <input type="radio" name="respuesta" 
+                id="resp0" value="-" style="display: none;" 
+                {% if respuesta == '-' %}checked{% endif %}>
+        <input type="radio" name="respuesta" id="resp1" value="A"
+        {% if respuesta == 'A' %}checked{% endif %}>
+        <label for="resp1">{{ question.resp1 }}</label>
+        <br>
+        <input type="radio" name="respuesta" id="resp2" value="B"
+        {% if respuesta == 'B' %}checked{% endif %}>
+        <label for="resp2">{{ question.resp2 }}</label>
+        <br>
+        <input type="radio" name="respuesta" id="resp3" value="C"
+        {% if respuesta == 'C' %}checked{% endif %}>
+        <label for="resp3">{{ question.resp3 }}</label>
+        <br>
+        <input type="radio" name="respuesta" id="resp4" value="D"
+        {% if respuesta == 'D' %}checked{% endif %}>
+        <label for="resp4">{{ question.resp4 }}</label>
+        <br>
+        <input type="hidden" name="question_in_breakdown" value="{{ question_in_breakdown }}">
+        <input type="submit" value="Siguiente">
+    </form>    
+    --> 
+{% endblock %}

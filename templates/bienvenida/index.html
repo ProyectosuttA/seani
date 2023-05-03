@@ -1,0 +1,25 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/e_inicio.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+    <title>SEANI</title>
+</head>
+<body>
+
+    <div class="container d-flex align-items-center vh-100">
+		<main class="mx-auto text-center" style="background-color: rgba(250, 250, 250, 0.918); border-radius:30px;">
+			<h1 class="text-center font-weight-bold" style="color: #fd5f03;">UNIVERSIDAD TECNOLÓGICA <br> DE TLAXCALA</h1>
+            <img src="{% static 'img/logo.png'%}" alt="" style="display: block; margin: 0 auto;">
+			<p class="text-center">SISTEMA DE EVALUCIÓN PARA ASPIRANTES <br> DE NUEVO INGRESO </p>
+			<p class="text-center">SEANI </p>
+			<a href="{%url 'ingresar'%}" class="btn btn-success text-center">COMENZAR</a>
+		</main>
+	</div>
+
+</html>

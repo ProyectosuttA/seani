@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+    <title>SEANI</title>
+</head>
+
+<body class="d-flex align-items-center justify-content-center" style="	background-image:  url(https://www.uttlaxcala.edu.mx/images/Logo_utt_oficial_2021_2022.png);
+background-size: contain; background-repeat: no-repeat; background-position: center center;">
+
+    <div class="vh-100 gradient-custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100"  style="background-color: #ffffffc9; border-radius: 10px; border: solid #e45705c9;">
+        <div class="col-md-9 col-lg-6 col-xl-5" >
+          <img src="https://www.uttlaxcala.edu.mx/images/Logo_utt_oficial_2021_2022.png" class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1" style= "border-left: solid #e45705c9;">
+          <form action="{% url 'ingresar'%}" method="POST">
+            {% csrf_token %}
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input  name="username" type="text" id="form3Example3" class="form-control form-control-lg" placeholder="INGRESA EL USUARIO" />
+              <label class="form-label" for="form3Example3">USUARIO</label>
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input name="password" type="password" id="form3Example4" class="form-control form-control-lg" placeholder="INGRESA LA CONTRASEÑA" />
+              <label class="form-label" for="form3Example4">CONTRASEÑA</label>
+            </div>
+  
+            <div class="text-center mt-4 pt-2">
+              <button class="btn btn-success btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">INGRESAR</button>
+            </div>
+            <br>
+            {% if error %}
+            <span  style= "background-color: #f0e5e69c; text-align: center; border: 1px solid #c7254e; border-radius: 5px;  color: #721c24;
+            padding: 5px;">{{error}}</span>
+            {% endif %}
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+</html>
+
+
+
+

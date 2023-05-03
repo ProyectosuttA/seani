@@ -1,0 +1,64 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+    <!-- page content -->
+     <div class="right_col" role="main">
+        
+    <div class="vh-100 gradient-custom">
+        
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100"  style="background-color: #ffffffc9; border-radius: 10px; border: solid #e45705c9;">
+        
+            <form action="{% url 'archivo' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <h1 style="text-align: center;">CARGA DE DOCUMENTOS CSV</h1>
+                    <h5 style="text-align: center;">La estructura debe de contener los siguientes datos</h5>
+                    <div class="table-responsive-xxl">
+                        <table class="table">
+                            <tr>
+                                <th scope="col">NOMBRE</th>
+                                <th scope="col">APELLIDO</th>
+                                <th scope="col">EMAIL</th>
+                                
+                              </tr>
+                              <tbody>
+                                <th scope="col">PASSWORD</th>
+                                <th scope="col">CARRERA</th>
+                                <th scope="col">ETAPA</th>
+                              </tbody>
+                        </table>
+                      </div>
+                      
+                      
+                    <label for="csv_file">Seleccionar archivo CSV:</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="csv_file" name="csv_file">
+                      <label class="custom-file-label" for="csv_file">Seleccionar archivo</label>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success">Cargar archivo</button>
+                  </div>                  
+            </form>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        // Obtener el campo de entrada y la etiqueta
+        const inputFile = document.getElementById('csv_file');
+        const label = inputFile.nextElementSibling;
+      
+        // Agregar un controlador de eventos para cuando se seleccione un archivo
+        inputFile.addEventListener('change', function() {
+          // Obtener el nombre del archivo seleccionado
+          const fileName = this.value.split('\\').pop();
+      
+          // Actualizar la etiqueta con el nombre del archivo
+          label.innerText = fileName;
+        });
+      </script>
+    {% endblock %}
+  

@@ -1,0 +1,83 @@
+
+@import url('https://fonts.googleapis.com/css?family=Bangers|Poppins&display=swap');
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+
+body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh; /* establece la altura completa de la ventana del navegador */
+		margin: 0; /* elimina los márgenes predeterminados del cuerpo */
+		background-image:  url(https://www.uttlaxcala.edu.mx/images/Logo_utt_oficial_2021_2022.png);
+		background-size: 80%;	
+		background-repeat: no-repeat;
+		background-position: center center;
+}
+
+.container {
+	display: flex;
+	flex-direction:row;
+	justify-content: center;
+  	align-items: center;
+	height: 100vh;
+	margin: 0;
+	background-color: #ffffff00;
+  }
+  
+ 
+  h1{
+	color:azure;
+	font-size: 40px;
+	bottom: 0;
+	margin-top: 30px;
+  }
+  
+  .elemento2 {
+	text-align: center; 	 
+	width: 60%;
+	height: 90%;
+	background-color: rgba(255, 255, 255, 0);
+	flex-direction:row;
+	justify-content: center;
+  	align-items: center;
+	background-color: #ffffff00;
+	
+  }
+  .hijo-elemento2{
+	text-align: center; 	 
+	width: 80%;
+	height: 80%;
+	background-color: rgb(251, 252, 251);
+	margin-top: 10%;	
+	margin-left: 10%;
+	font-size: 140%;
+	border: 10px solid #fd5101;
+	border-radius: 4px;
+	background-color: #ffffffc2;
+	white-space: normal;
+  }
+  img{
+	border-radius: 15px;
+	display:inline-block;
+  }
+  h2{
+	color: rgb(255, 94, 0);
+	margin-top: 30px;
+  }
+
+  .ingresar{
+  margin-top: 30px;
+  background-color: #007A5E;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  }

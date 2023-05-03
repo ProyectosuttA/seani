@@ -1,0 +1,153 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+<div class="right_col" role="main">
+  <h1 class="text-center">ACTULIAZAR USUARIO</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+        <div class="form-group row">
+          <label for="uaser" class="col-4 col-form-label">ID</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-hashtag"></i>
+                </div>
+              </div> 
+              <input id="uaser" name="val" placeholder="Ingresa el ID de la pregunta." type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <h3 class="text-center">DATOS NUEVOS DE LA PREGUNTA</h3>
+        
+        <p class="text-center">SOLO INGRESA URL DE LA PREGUNTA O LA PREGUNTA, NO AMBOS</p>
+        <div class="form-group row">
+          <label for="uaser" class="col-4 col-form-label">Pregunta</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-question"></i>
+                </div>
+              </div> 
+              <input id="pregunta" name="pregunta" placeholder="Ingresa el texto de la pregunta." type="text" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="uaser" class="col-4 col-form-label">URL De La Pregunta</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-question"></i>
+                </div>
+              </div> 
+              <input id="uaser" name="url" placeholder="Ingresa la url de la imagen que contiene la pregunta." type="" class="form-control" >
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="apellidos" class="col-4 col-form-label">RESP1
+          </label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-check-circle"></i>
+                </div>
+              </div> 
+              <input id="apellidos" name="resp1" placeholder="Ingresa la opción 1 para el alumno." type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidos" class="col-4 col-form-label">RESP2
+          </label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-check-circle"></i>
+                </div>
+              </div> 
+              <input id="apellidos" name="resp2" placeholder="Ingresa la opción 2 para el alumno." type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="apellidos" class="col-4 col-form-label">RESP3
+          </label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-check-circle"></i>
+                </div>
+              </div> 
+              <input id="apellidos" name="resp3" placeholder="Ingresa la opción 3 para el alumno." type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="apellidos" class="col-4 col-form-label">RESP4
+          </label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-check-circle"></i>
+                </div>
+              </div> 
+              <input id="apellidos" name="res4" placeholder="Ingresa la opción 4 para el alumno." type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="password" class="col-4 col-form-label">CORRECTA</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="	fa fa-lightbulb-o"></i>
+                </div>
+              </div> 
+              <input id="correcta" name="correcta" placeholder="Ingresa la opción correcta de la pregunta." type="text" required="required" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="password" class="col-4 col-form-label">NUMERO DE MODULO</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="	fa fa-book"></i>
+                </div>
+              </div> 
+              <input id="modulo" name="modulo" placeholder="Ingresa el numero de modulo de la pregunta." type="txt" required="required" class="form-control">
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="form-group row">
+          <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">ACTUALIZAR</button>
+          </div>
+        </div>
+        {% if error %}
+            <span class="text-center" style= "background-color: #f0e5e69c; text-align: center; border: 1px solid #c7254e; border-radius: 5px;  color: #721c24;
+            padding: 5px;">{{error}}</span>
+        {% endif %}
+      </form>
+</div>
+{% endblock %}

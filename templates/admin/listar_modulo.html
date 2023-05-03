@@ -1,0 +1,39 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+<div class="right_col" role="main">
+    {% csrf_token %}
+    <h1>LISTAR</h1>
+    <div class="table-responsive">
+        <table class="table table-sm ">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">DESCRIPCIÓN</th>
+          
+          </thead>
+          {% for modulo in modulos %}
+
+          <tbody>
+            <tr>
+              <th scope="row">{{modulo.id}}</th>
+              <td>{{modulo.name}}</td>                        
+              <td>{{modulo.description}}</td>                        
+            </tr>
+           
+          </tbody>
+
+          {%empty%}
+          <div>
+            <h2 class="text-center">NO SE HAN ENCONTRARON USUARIOS </h2>
+          </div>
+         {% endfor %}
+      
+        </table>
+      </div>
+
+</div>
+
+
+{% endblock %}

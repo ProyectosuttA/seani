@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+{% block title %}Save Modulo{% endblock %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilosr.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section class="textos-header">
+        <h1>Guarda o Revisar</h1>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C225.17,133.72 354.97,-50.80 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+    </header>
+    <section class="portafolio">
+        <div class="contenedor">
+            <h1>Has finalizado el módulo</h1>
+            <img src="https://saiiuttlx.uttlaxcala.edu.mx/saiiut/imagenes/mascotaUtt720.jpg" alt="">
+            <br>
+            <a class="boton" href="{% url 'question' id_mod 1 %}">Revisar</a>
+            <form action="{% url 'save_modulo' id_mod %}" method="post">
+                {% csrf_token %}
+               <input class="boton" type="submit" value="Guardar">
+            </form>
+            
+        </div>
+    </section>
+</body>
+</html>
+<!--
+<h1>Has finalizado el módulo</h1>
+<a href="{% url 'question' id_mod 1 %}">Revisar</a>
+<form action="{% url 'save_modulo' id_mod %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Guardar">
+</form>
+{% endblock %}
+-->

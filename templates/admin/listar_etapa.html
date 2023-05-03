@@ -1,0 +1,41 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+<div class="right_col" role="main">
+    {% csrf_token %}
+    <h1>LISTA DE ETAPAS DISPONIBLES</h1>
+    <div class="table-responsive">
+        <table class="table table-sm ">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">No DE ETAPA</th>
+              <th scope="col">FECHA </th>
+              
+            </tr>
+          </thead>
+          {% for etapa in etapas%}
+
+          <tbody>
+            <tr>
+              <th scope="row">{{etapa.id}}</th>
+              <td>{{etapa.no_stage}}</td>
+              <td>{{etapa.application_date}}</td>
+                                    
+            </tr>
+           
+          </tbody>
+
+          {%empty%}
+                        <div>
+                            <h2 class="text-center">NO SE HAN ENCONTRARON USUARIOS </h2>
+                        </div>
+         {% endfor %}
+      
+        </table>
+      </div>
+
+</div>
+
+
+{% endblock %}

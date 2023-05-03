@@ -1,0 +1,51 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+<div class="right_col" role="main">
+    {% csrf_token %}
+    <h1>LISTAR</h1>
+    <div class="table-responsive">
+        <table class="table table-sm ">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">PREGUNTA</th>
+              <th scope="col">URL</th>
+              <th scope="col">RESP1</th>
+              <th scope="col">RESP2</th>
+              <th scope="col">RESP3</th>
+              <th scope="col">RESP4</th>
+              <th scope="col">CORRECTA</th>
+              <th scope="col">MODULO</th>
+            </tr>
+          </thead>
+          {% for pregunta in preguntas %}
+
+          <tbody>
+            <tr>
+              <th scope="row">{{pregunta.id}}</th>
+              <td>{{pregunta.question}}</td>
+              <td>{{pregunta.question_url}}</td>
+              <td>{{pregunta.resp1}}</td>
+              <td>{{pregunta.resp2}}</td>
+              <td>{{pregunta.resp3}}</td>
+              <td>{{pregunta.resp1}}</td>
+              <td>{{pregunta.correct}}</td>                           
+              <td>{{pregunta.module_id}}</td>                           
+            </tr>
+           
+          </tbody>
+
+          {%empty%}
+                        <div>
+                            <h2 class="text-center">NO SE HAN ENCONTRARON USUARIOS </h2>
+                        </div>
+         {% endfor %}
+      
+        </table>
+      </div>
+
+</div>
+
+
+{% endblock %}

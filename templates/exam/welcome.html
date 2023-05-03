@@ -1,0 +1,146 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos_seleccion.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    <header>
+        <div class="utt">
+            <img src="https://www.uttlaxcala.edu.mx/images/Logo_utt_flor_3.png" alt="">
+          </div>
+        <div class="contenedor" >
+            <div class="logo">
+                <a href="{% url 'logout' %}"><img src="{% static 'img/usuario.png' %}" alt=""></a>
+            </div class="usuario">
+                  <p> Bienvenido <br> {{ user.first_name }} <br> {{ user.last_name }}</p>
+            </div>                       
+        </div>
+        
+        
+      </header>
+    -->
+    <header>
+        <nav>
+            <a href="{% url 'salir' %}">Salir</a>
+        </nav>
+        <section class="textos-header">
+        <h1>"BIENVENIDO"</h1>
+        <h2>{{ user.first_name }} <br> {{ user.last_name }}</h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C225.17,133.72 354.97,-50.80 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(255, 255, 255);"></path></svg></div>
+    </header>
+    <main>
+        <section class="contenedor sobre-nosotros">
+            <h2 class="titulo">Instrucciones</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img class="imagen" src="{% static 'img/instrucciones.svg'%}" alt=""  class="imagen-about-us">
+                <div class="contenido-textos">
+                    <h3><span>1</span>Para comenzar</h3>
+                    <p>Selecciona una de las opciones de los modulos que se encuentran en la parte de abajo </p>
+                    <h3><span>2</span>Concluye cada modulo &nbsp; &nbsp; &nbsp;&nbsp;</h3>
+                    <p>Al terminar de cada modulo podras revisar o guardar tus respuestas</p>
+                    <h3><span>3</span>Debes de guardar tus preguntas</h3>
+                    <p>Si guardas tus respuestas no posdras regresar al doculo a cambiarlas</p>
+                    <h3><span>4</span>Administra tu tiempo</h3>
+                    <p>La pruba tiene un lapso de tiempo de 2 horas, procura no sobrepasar este tiempo</p>
+                </div>
+            </div>
+        </section>
+        <section class="portafolio">
+            <div class="contenedor">
+                <h2 class="titulo">MODULO</h2>
+                <div class="galeria-port">
+                    <div class="imagen-port" >
+                        <img src="{% static 'img/pensamiento.png'%}" alt="" href="{% url 'modulo' 3 %}" >
+                        <div class="hover-galeria">
+                            <a href="{% url 'modulo' 4 %}">
+                                <img src="{% static 'img/icono1.png'%}" alt=""> 
+                            </a>
+                           <p>MODULO: <br> Pensamiento Matemático</p>
+                        </div>
+                    </div>
+                    
+                    <div class="imagen-port">
+                        <img src="{% static 'img/pensamientoa.png'%}" alt="" href="{% url 'modulo' 4 %}">
+                        <div class="hover-galeria">
+                            <a href="{% url 'modulo' 1 %}">
+                           <img src="{% static 'img/icono1.png'%}" alt=""> 
+                            </a>    
+                           <p>MODULO: <br> Pensamiento Analitico </p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="{% static 'img/comprension.png'%}" alt="" href="{% url 'modulo' 1 %}" >
+                        <div class="hover-galeria">
+                            <a href="{% url 'modulo' 3 %}">
+                           <img src="{% static 'img/icono1.png'%}" alt=""> 
+                            </a>
+                           <p>MODULO: <br> Comprensión lectora</p>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="{% static 'img/estructura.png'%}" alt="" href="{% url 'modulo' 2 %}">
+                        <div class="hover-galeria">
+                            <a href="{% url 'modulo' 2 %}">
+                           <img src="{% static 'img/icono1.png'%}" alt=""> 
+                        </a>
+                           <p>MODULO: <br> Estructura de la lengua</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>UNIVERSIDAD TECNOLÓGICA DE TLAXCALA</h4>
+            </div>            
+        </div>
+        <h2 class="titulo-final">&copy; UTT </h2>
+    </footer>
+
+<!--
+
+     <div class="contenido">
+        <div class="instrucciones">
+            <h2>Instrucciones</h2>
+            <ul>
+                <li><p> El tiempo para realizar el siguiente examen es correspondiente a 2 horas </p></li>
+                <li> <p>Al concluir las preguntas de un modulo podras revisar o gurdar tus respuestas</p> </li>
+                    <li> <p>Al guardar tus respuestas de cada modulo no podras realizar modificaciones a tus respuestas</p></li>
+
+            </ul>    
+          </div>
+          <div class="opciones">
+            <ul>
+                <li><a href="{% url 'modulo' 1 %}">p a</a></li>
+                <li><a href="{% url 'modulo' 2 %}">Estructura de la Lengua</a></li>
+                <li><a href="{% url 'modulo' 3 %}">c l/a></li>
+                <li><a href="{% url 'modulo' 4 %}">Pensamiento m</a></li>
+             </ul>
+          </div>
+     </div>
+
+    <a href="{% url 'logout' %}">Salir</a>
+      
+</body> 
+</html>
+-->
+        
+ 
+{% endblock %}

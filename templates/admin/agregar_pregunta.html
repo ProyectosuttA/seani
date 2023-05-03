@@ -1,0 +1,115 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+
+<div class="right_col" role="main">
+  <h1 class="text-center">AGREGAR UNA PREGUNTA</h1>
+    <form>
+        <div class="form-group row">
+          <label for="uaser" class="col-4 col-form-label">Correo</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-envelope"></i>
+                </div>
+              </div> 
+              <input id="uaser" name="uaser" placeholder="Ingresa el correo del usuario." type="email" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="nombres" class="col-4 col-form-label">Nombres</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </div>
+              </div> 
+              <input id="nombres" name="nombres" placeholder="Ingresa los nombres del usuario" type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="apellidos" class="col-4 col-form-label">Apellidos</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-user"></i>
+                </div>
+              </div> 
+              <input id="apellidos" name="apellidos" placeholder="Ingresa los apellidos del usuario" type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="carrera" class="col-4 col-form-label">Carrera</label> 
+          <div class="col-8">
+            <select id="carrera" name="carrera" class="custom-select" required="required">
+              <option value="DNAM">DNAM</option>
+              <option value="DNAM/LINEA">DNAM/LINEA</option>
+              <option value="PIAA">PIAA</option>
+              <option value="PIAA/SAB">PIAA/SAB</option>
+              <option value="PIAM">PIAM</option>
+              <option value="MAAU">MAAU</option>
+              <option value="DMIAP">DMIAP</option>
+              <option value="MAI">MAI</option>
+              <option value="MAI-DES">MAI-DES</option>
+              <option value="PIAP">PIAP</option>
+              <option value="AACH/LINEA">AACH/LINEA</option>
+              <option value="TIADSM">TIADSM</option>
+              <option value="TIAIRD">TIAIRD</option>
+              <option value="TIAVND">TIAVND</option>
+              <option value="MAR">MAR</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-4 col-form-label">Contraseña</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-lock"></i>
+                </div>
+              </div> 
+              <input id="password" name="password" placeholder="Ingresa la contraseña del usuario" type="password" required="required" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="etapa" class="col-4 col-form-label">Etapa</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-hashtag"></i>
+                </div>
+              </div> 
+              <input id="etapa" name="etapa" placeholder="Ingresa la etapa para presentar examen" type="text" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="fecha" class="col-4 col-form-label">fecha</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-calendar"></i>
+                </div>
+              </div> 
+              <input id="fecha" name="fecha" placeholder="Ingresa la fecha de la prueba" type="date" class="form-control" required="required">
+            </div>
+          </div>
+        </div> 
+        <div class="form-group row">
+          <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+</div>
+{% endblock %}
