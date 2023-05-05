@@ -71,10 +71,6 @@ def administrador(request):
             fig.tight_layout()
             # Convertir la gráfica en un objeto HTML
             barras = mpld3.fig_to_html(fig) 
-            usuario=User.objects.get(id=232)
-            print(usuario.username, usuario.password)   
-
-
             return render(request, 'admin/admin.html',{'grafica':chart_html, 'barras':barras})
         else:
             return redirect('examen')
@@ -112,7 +108,22 @@ def agregar(request):
             if request.method=='GET':
                 return render(request, 'admin/agregar.html')
             else:
-                print(request.POST)
+                try:
+                    usuario=User.objects.create_user(email=request.POST['email'].strip(),username=request.POST['email'].strip(), password=request.POST['password'].strip())
+                    usuario.first_name=request.POST['nombres']
+                    usuario.last_name=request.POST['apellidos']
+                    usuario.save()
+                    etapa=ExamenesStage.objects.get(no_stage=request.POST['etapa'])
+                    exam=usuario.examenesexam_set.create(stage=etapa, career=request.POST['carrera'])
+                    preguntas = PreguntasQuestion.objects.all()
+                    for pregunta in preguntas:
+                        exam.examenesbreakdown_set.create(question=pregunta, correct=pregunta.correct)
+                    error="LOS USUARIOS FUERON CREADOS "
+                    return render(request, 'admin/agregar.html',{'error':error})                   
+                except:
+                    error:'El usuario no fue possible crear'
+                    return render(request, 'admin/agregar.html',{'error':error})
+
                 return render(request, 'admin/agregar.html')
                 
         else:
@@ -138,7 +149,6 @@ def agregarpregunta(request):
             if request.method=='GET':
                 return render(request,'admin/agregar_pregunta.html')
             else:
-                print(request.POST)
                 return render(request,'admin/agregar_agregar_pregunta.html')                
         else:
             return redirect('examen')
@@ -182,7 +192,6 @@ def archivo(request):
                             user=User.objects.create_user(email=dato['email'].strip(),username=dato['email'].strip(), password=dato['password'].strip())
                             user.first_name=dato['nombre'].strip()
                             user.last_name=dato['apellidos'].strip()
-                            print(user.password, user.username, user.email)
                             user.save()
                             etapa=ExamenesStage.objects.get(no_stage=dato['etapa'])
                             exam=user.examenesexam_set.create(stage=etapa, career=dato['carrera'])
@@ -192,7 +201,6 @@ def archivo(request):
                             error="LOS USUARIOS FUERON CREADOS "
                         except:
                             error="REVISA LA ESTRUCTURA POR FAVOR" 
-                            print("El usuario no se pudo ingresar", dato)
                     return render(request, 'admin/archivo.html',{'error':error} )
                     
             return render(request, 'admin/archivo.html' )
@@ -238,20 +246,20 @@ def actualizarpregunta(request):
             else:       
                 try:
                     pregunta=PreguntasQuestion.objects.get(id=request.POST['val'])
-                    print(request.POST)
                     if request.POST['pregunta']!='' and request.POST['url']!='':
                         error='SOLO ADMINTE UN TIPO DE PREGUNTA'
                         return render(request,'admin/actualizar_pregunta.html',{'error':error})
                     else:
                         pregunta.question_url=request.POST['url']
                         pregunta.question=POST['pregunta'] 
-                    pregunta.resp1=request.POST['resp1']
-                    pregunta.resp2=request.POST['resp2']
-                    pregunta.resp3=request.POST['resp3']
-                    pregunta.resp4=request.POST['resp4']
-                    pregunta.correct=request.POST['correcta']
-                    pregunta.module_id=request.POST['modulo']
-                    error="LA PREGUNTA SE ACTUALIZÓ"                    
+                        pregunta.resp1=request.POST['resp1']
+                        pregunta.resp2=request.POST['resp2']
+                        pregunta.resp3=request.POST['resp3']
+                        pregunta.resp4=request.POST['resp4']
+                        pregunta.correct=request.POST['correcta']
+                        pregunta.module_id=request.POST['modulo']
+                        pregunta.save()
+                        error="LA PREGUNTA SE ACTUALIZÓ"                   
                     return render(request,'admin/actualizar_pregunta.html',{'error':error})
 
                 except:
