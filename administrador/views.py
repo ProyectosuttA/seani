@@ -93,7 +93,14 @@ def listar(request):
                 mod1.append(ExamenesExam.objects.filter(user_id=var).values('result_mod_1').first())      
                 mod2.append(ExamenesExam.objects.filter(user_id=var).values('result_mod_2').first())      
                 mod3.append(ExamenesExam.objects.filter(user_id=var).values('result_mod_3').first())      
-                mod4.append(ExamenesExam.objects.filter(user_id=var).values('result_mod_4').first())      
+                mod4.append(ExamenesExam.objects.filter(user_id=var).values('result_mod_4').first())
+                """try:
+                    examen=usuario.examenesexam_set.get()
+                    examen.average=(examen.result_mod_1+examen.result_mod_2+examen.result_mod_3+examen.result_mod_4)/4
+                    print(examen.average)
+                    examen.save()
+                except:
+                    print ("aqui no")"""
             datos = list(zip(usuarios, carrera, mod1,mod2,mod3,mod4))            
             return render(request, 'admin/listar.html',{'usuarios':datos})
         else:
@@ -315,6 +322,26 @@ def eliminarpregunta(request):
     else:
         return redirect('inicio')
     
+def consulta_user(request):
+    if request.user.is_authenticated:
+        user=request.user.is_superuser
+        if user == True:
+            if request.method=='GET':
+                return render(request, 'admin/consulta.html')
+            else:
+                try:
+                    usuario=User.objects.get(username=request.POST["val"].strip())
+                    examen=usuario.examenesexam_set.get()
+                    return render(request, 'admin/consulta.html',{'usuario':usuario,'examen':examen})                   
+                except:
+                    error='El usuario no fue possible crear'
+                    return render(request, 'admin/consulta.html',{'error':error})
 
+                return render(request, 'admin/consulta.html')
+                
+        else:
+            return redirect('examen')
+    else:
+        return redirect('inicio')
 
 

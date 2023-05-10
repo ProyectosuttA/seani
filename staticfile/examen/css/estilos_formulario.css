@@ -1,0 +1,67 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+
+html { width: 100%; height:100%; overflow:hidden; }
+
+body { 
+	font-family: 'Open Sans', sans-serif;
+	background-image: url(https://www.uttlaxcala.edu.mx/images/Logo_utt_oficial_2021_2022.png);
+  background-size: 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756',GradientType=1 );
+}
+form { 
+  background-color: #fffdfdc2;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -15%;
+	width:30%;
+	height:40%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  border: 5px solid #135e01;
+  
+}
+label{
+  color: #f55b02;
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  font-weight: bold;
+  text-align: center; 
+  margin: 0;
+
+}
+  h1 { color: #267009; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+input{ 
+	width: 90%; 
+	margin-bottom: 10px; 
+	background: rgba(245, 237, 237, 0.041);
+	border: none;
+	outline: none;
+	padding: 20px;
+	font-size: 18px;
+	color: #fa6502;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 3px solid rgba(0, 0, 0, 0.384);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+.boton:hover {
+  cursor: pointer;
+  background-color: #135e01;
+  color: aliceblue;
+}
+

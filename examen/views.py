@@ -8,8 +8,6 @@ from administrador.models import *
 @login_required
 def examen(request):
     exam=ExamenesExam.objects.all()
-    for e in exam:
-        print(e.user)
     return render(request ,'exam/welcome.html')
    
 
@@ -79,7 +77,7 @@ def question(request, id_mod, id_ques):
     if request.method == 'POST':
         respuesta = request.POST['respuesta']
         id_question_exam = request.POST['question_in_breakdown']
-        question_in_exam = Breakdown.objects.get(pk=id_question_exam)
+        question_in_exam = ExamenesBreakdown.objects.get(pk=id_question_exam)
         # Update de Object
         if respuesta != '-':
             question_in_exam.answer = respuesta
@@ -112,6 +110,7 @@ def save_modulo(request, id_mod):
             examen.status_mod_4 = False
             resultado = examen.get_results(id_mod)
             examen.result_mod_4 = resultado
+        examen.average=(examen.result_mod_1+examen.result_mod_2+examen.result_mod_3+examen.result_mod_4)/4
         examen.save()
-        return redirect('welcome')
+        return redirect('examen')
 

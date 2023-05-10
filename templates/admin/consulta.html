@@ -1,0 +1,157 @@
+{% extends 'index_master.html' %}
+
+{% block content %}
+<div class="right_col" role="main">
+  <h1 class="text-center">BUSCAR USUARIO</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+        <div class="form-group row">
+          <label for="uaser" class="col-4 col-form-label">USUARIO</label> 
+          <div class="col-8">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-users"></i>
+                </div>
+              </div> 
+              <input id="uaser" name="val" placeholder="Ingresa el correo del usuario." type="txt" class="form-control" required="required">
+            </div>
+          </div>
+        </div>
+                
+        <div class="form-group row">
+          <div class="offset-4 col-8">
+            <button name="submit" type="submit" class="btn btn-primary">BUSCAR</button>
+          </div>
+        </div>
+
+    </form>
+
+       
+      {%if usuario%}
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">Usuario</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{usuario.username}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">EMAIL</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="user" placeholder="{{usuario.email}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">NOMBRES</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{usuario.first_name}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">APELLIDOS</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{usuario.last_name}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">Resultado1</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{examen.result_mod_1}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">Resultado2</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{examen.result_mod_2}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">Resultado3</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{examen.result_mod_3}}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">Resultado4</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-user"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{examen.result_mod_4 }}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="uaser" class="col-4 col-form-label">PROMEDIO</label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fa fa-hashtag"></i>
+              </div>
+            </div> 
+            <input id="uaser" name="email" placeholder="{{examen.average }}" type="email" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      {% if error %}
+      <span  style= "background-color: #f0e5e69c; text-align: center; border: 1px solid #c7254e; border-radius: 5px;  color: #721c24;
+      padding: 5px;">{{error}}</span>
+      {% endif %}
+
+
+</div>
+{% endblock %}
