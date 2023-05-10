@@ -1,5 +1,6 @@
 
 # Ignora la carpeta node_moduless
+venv
 staticfiles
 
 
